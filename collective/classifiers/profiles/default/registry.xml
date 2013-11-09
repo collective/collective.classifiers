@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<registry xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+          i18n:domain="plone">
+  <record name="collective.classifiers.themes">
+    <field type="plone.registry.field.Dict">
+      <title i18n:translate="">Classifier Themes</title>
+      <key_type type="plone.registry.field.TextLine">
+        <title i18n:translate="">Theme</title>
+      </key_type>
+      <value_type type="plone.registry.field.Tuple">
+        <title i18n:translate="">Sub themes</title>
+        <value_type type="plone.registry.field.TextLine" />
+      </value_type>
+    </field>
+    <value purge="false" />
+  </record>
+  <record name="collective.classifiers.categories">
+    <field type="plone.registry.field.Dict">
+      <title i18n:translate="">Classifier Categories</title>
+      <key_type type="plone.registry.field.TextLine">
+        <title i18n:translate="">Category</title>
+      </key_type>
+      <value_type type="plone.registry.field.Tuple">
+        <title i18n:translate="">Sub categories</title>
+        <value_type type="plone.registry.field.TextLine" />
+      </value_type>
+    </field>
+    <value purge="false" />
+  </record>
+  <record name="collective.classifiers.themes_name">
+    <field type="plone.registry.field.TextLine">
+      <title i18n:translate="">Name to use for themes field</title>
+    </field>
+    <value>Themes</value>
+  </record>
+  <record name="collective.classifiers.categories_name">
+    <field type="plone.registry.field.TextLine">
+      <title i18n:translate="">Name to use for categories field</title>
+    </field>
+    <value>Categories</value>
+  </record>
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.classifiers_themes">
+    <value key="title" i18n:translate="">Classifier Themes</value>
+    <value key="enabled">True</value>
+    <value key="sortable">True</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.is</element>
+    </value>
+    <value key="vocabulary">collective.classifiers.themes</value>
+    <value key="group" i18n:translate="">Metadata</value>
+  </records>
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.classifiers_categories">
+    <value key="title" i18n:translate="">Classifier Categories</value>
+    <value key="enabled">True</value>
+    <value key="sortable">True</value>
+    <value key="operations">
+      <element>plone.app.querystring.operation.selection.is</element>
+    </value>
+    <value key="vocabulary">collective.classifiers.categories</value>
+    <value key="group" i18n:translate="">Metadata</value>
+  </records>
+</registry>

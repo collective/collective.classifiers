@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<registry>
+  <record name="collective.classifiers.themes">
+    <value purge="false">
+      <element key="Water">
+        <element>Drinking</element>
+        <element>Surface</element>
+        <element>Underground</element>
+        <element>Rain</element>
+      </element>
+      <element key="Air">
+        <element>Quality</element>
+        <element>Non-ascii: 汉语/漢語 Hànyǔ</element>
+        <element>PAK</element>
+        <element>Heavy metals</element>
+        <element>Ozon</element>
+      </element>
+      <element key="汉语">
+        <element>Non-ascii: 汉语/漢語 Hànyǔ</element>
+        <element>abc</element>
+        <element>123</element>
+      </element>
+    </value>
+  </record>
+  <record name="collective.classifiers.categories">
+    <value purge="false">
+      <element key="Product">
+        <!-- This space intentionally left blank. -->
+        <element> </element>
+      </element>
+      <element key="Report">
+        <element>Management</element>
+        <element>Technical</element>
+        <!-- This space intentionally left blank. -->
+        <element> </element>
+      </element>
+      <element key="汉语/漢語 Hànyǔ">
+        <!-- This space intentionally left blank. -->
+        <element> </element>
+      </element>
+    </value>
+  </record>
+</registry>

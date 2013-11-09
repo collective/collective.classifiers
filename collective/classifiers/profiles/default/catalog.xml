@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+  <index name="classifiers_themes" meta_type="KeywordIndex">
+    <indexed_attr value="classifiers_themes"/>
+  </index>
+  <index name="classifiers_categories" meta_type="KeywordIndex">
+    <indexed_attr value="classifiers_categories"/>
+  </index>
+  <column value="classifiers_themes"/>
+  <column value="classifiers_categories"/>
+</object>

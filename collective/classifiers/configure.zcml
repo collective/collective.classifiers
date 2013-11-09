@@ -1,0 +1,54 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="collective.classifiers">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
+  <include package="plone.behavior" file="meta.zcml" />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.classifiers"
+      directory="profiles/default"
+      description="Installs the collective.classifiers package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="testfixture"
+      title="collective.classifiers testfixture"
+      directory="profiles/testfixture"
+      description="Testfixture for collective.classifiers"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <utility
+      component=".vocabularies.ThemesVocabularyFactory"
+      name="collective.classifiers.themes"
+      />
+  <utility
+      component=".vocabularies.CategoriesVocabularyFactory"
+      name="collective.classifiers.categories"
+      />
+
+  <adapter name="classifiers_themes" factory=".indexers.classifiers_themes" />
+  <adapter name="classifiers_categories" factory=".indexers.classifiers_categories" />
+
+  <plone:behavior
+      title="Themes classifiers"
+      description="Adds classifiers_themes field."
+      provides=".behaviors.IThemes"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      />
+  <plone:behavior
+      title="Categories classifiers"
+      description="Adds classifiers_categories field."
+      provides=".behaviors.ICategories"
+      for="plone.dexterity.interfaces.IDexterityContent"
+      />
+  
+</configure>
