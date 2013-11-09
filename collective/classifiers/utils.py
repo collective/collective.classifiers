@@ -1,6 +1,3 @@
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-
 SPLITTER = ' > '
 
 
@@ -50,13 +47,3 @@ def extract_sub_classifiers(classifiers):
     result = set()
     result.update(classifiers)
     return sorted(list(result))
-
-
-def get_themes_name():
-    registry = getUtility(IRegistry)
-    return registry['collective.classifiers.themes_name']
-
-
-def get_categories_name():
-    registry = getUtility(IRegistry)
-    return registry['collective.classifiers.categories_name']

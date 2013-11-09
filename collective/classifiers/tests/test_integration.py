@@ -22,20 +22,12 @@ class IntegrationTestCase(unittest.TestCase):
         self.assertRaises(LookupError, vocab.getTerm, 'water > drinking')
         self.assertEqual(len(vocab.by_token), 0)
 
-    def test_get_themes_name(self):
-        from collective.classifiers.utils import get_themes_name
-        self.assertEqual(get_themes_name(), 'Themes')
-
     def test_categories_vocabulary(self):
         portal = self.layer['portal']
         util = getUtility(IVocabularyFactory, name='collective.classifiers.categories')
         vocab = util(portal)
         self.assertRaises(LookupError, vocab.getTerm, 'water > drinking')
         self.assertEqual(len(vocab.by_token), 0)
-
-    def test_get_categories_name(self):
-        from collective.classifiers.utils import get_categories_name
-        self.assertEqual(get_categories_name(), 'Categories')
 
 
 class ExtraIntegrationTestCase(unittest.TestCase):

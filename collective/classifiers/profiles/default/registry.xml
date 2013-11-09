@@ -27,18 +27,6 @@
     </field>
     <value purge="false" />
   </record>
-  <record name="collective.classifiers.themes_name">
-    <field type="plone.registry.field.TextLine">
-      <title i18n:translate="">Name to use for themes field</title>
-    </field>
-    <value>Themes</value>
-  </record>
-  <record name="collective.classifiers.categories_name">
-    <field type="plone.registry.field.TextLine">
-      <title i18n:translate="">Name to use for categories field</title>
-    </field>
-    <value>Categories</value>
-  </record>
   <records interface="plone.app.querystring.interfaces.IQueryField"
            prefix="plone.app.querystring.field.classifiers_themes">
     <value key="title" i18n:translate="">Classifier Themes</value>
