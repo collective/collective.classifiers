@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone 1.0\n"
-"POT-Creation-Date: 2013-11-08 17:07+0000\n"
+"POT-Creation-Date: 2013-11-09 21:42+0000\n"
 "PO-Revision-Date: 2013-11-08 17:20 +0100\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest Software <info@zestsoftware.nl>\n"
@@ -29,14 +29,6 @@ msgstr "Classificatie in thema's"
 #: profiles/default/registry.xml
 msgid "Metadata"
 msgstr "Metadata"
-
-#: profiles/default/registry.xml
-msgid "Name to use for categories field"
-msgstr "Naam om te gebruiken voor categorieën veld."
-
-#: profiles/default/registry.xml
-msgid "Name to use for themes field"
-msgstr "Naam om te gebruiken voor thema's veld."
 
 #: profiles/default/registry.xml
 msgid "Sub categories"

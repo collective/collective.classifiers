@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-08 17:07+0000\n"
+"POT-Creation-Date: 2013-11-09 21:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,14 +31,6 @@ msgstr ""
 
 #: profiles/default/registry.xml
 msgid "Metadata"
-msgstr ""
-
-#: profiles/default/registry.xml
-msgid "Name to use for categories field"
-msgstr ""
-
-#: profiles/default/registry.xml
-msgid "Name to use for themes field"
 msgstr ""
 
 #: profiles/default/registry.xml
