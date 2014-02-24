@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.2 (unreleased)
+0.2 (2014-02-24)
 ----------------
 
 - Make values not required.  Until now you could fake an empty values
