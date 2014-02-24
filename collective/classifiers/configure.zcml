@@ -58,5 +58,5 @@
       provides=".behaviors.ICategories"
       for="plone.dexterity.interfaces.IDexterityContent"
       />
-  
+
 </configure>
