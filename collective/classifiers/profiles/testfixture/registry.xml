@@ -24,10 +24,8 @@
   </record>
   <record name="collective.classifiers.categories">
     <value purge="false">
-      <element key="Product">
         <!-- This space intentionally left blank. -->
-        <element> </element>
-      </element>
+      <element key="Product" />
       <element key="Report">
         <element>Management</element>
         <element>Technical</element>

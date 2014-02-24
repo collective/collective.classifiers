@@ -26,6 +26,14 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
+  <genericsetup:upgradeStep
+      title="Update configuration registry"
+      description="Make values not required."
+      source="1000"
+      destination="1001"
+      handler="collective.classifiers.migration.run_registry_step"
+      profile="collective.classifiers:default" />
+
   <utility
       component=".vocabularies.ThemesVocabularyFactory"
       name="collective.classifiers.themes"
