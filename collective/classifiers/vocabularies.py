@@ -34,6 +34,8 @@ class ClassifiersVocabulary(object):
             if main:
                 term = SimpleTerm(normalized_main, normalized_main, main)
                 items.append(term)
+            if subs is None:
+                continue
             for sub in subs:
                 sub = sub.strip()
                 if not sub:

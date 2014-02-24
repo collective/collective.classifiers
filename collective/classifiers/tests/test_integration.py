@@ -4,6 +4,7 @@ import unittest
 
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import setRoles
+from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from zope.schema.interfaces import IVocabularyFactory
 
@@ -84,6 +85,28 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         self.assertTrue('report > technical' in keys)
         # This is a Chinese one, that gets passed through a normalizer.
         self.assertTrue('6c498bed-6f228a9e-hanyu' in keys)
+
+    def test_none_categories_vocabulary(self):
+        # None as value should be fine.
+        registry = getUtility(IRegistry)
+        classifiers = registry['collective.classifiers.categories']
+        self.assertEqual(classifiers['Product'], ())
+        # Explicitly set to None, which happens when you edit it, but
+        # apparently not when you leave the values empty in xml.
+        classifiers['Product'] = None
+
+        # Now try the vocabulary again.
+        util = getUtility(IVocabularyFactory, name='collective.classifiers.categories')
+        vocab = util(self.portal)
+        term = vocab.getTermByToken('product')
+        self.assertEqual(term.value, 'product')
+        self.assertEqual(term.token, 'product')
+        self.assertEqual(term.title, u'Product')
+
+        # Check the keys (well, the values of the vocabularies).
+        keys = vocab.by_value.keys()
+        self.assertTrue(len(keys) >= 5)
+        self.assertTrue('product' in keys)
 
     def test_themes_behavior_direct_access(self):
         self.assertEqual(self.item.classifiers_themes, [])

@@ -4,7 +4,8 @@ Changelog
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Handle case where values is None.
+  [maurits]
 
 
 0.2 (2014-02-24)
