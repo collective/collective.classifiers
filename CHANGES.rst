@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3 (unreleased)
+0.3 (2014-02-24)
 ----------------
 
 - Handle case where values is None.
