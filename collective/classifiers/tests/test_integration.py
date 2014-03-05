@@ -38,8 +38,8 @@ class ExtraIntegrationTestCase(unittest.TestCase):
     def setUp(self):
         self.portal = self.layer['portal']
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
-        self.portal.invokeFactory('TestItem', 'item', title=u"Item 1")
-        self.item = self.portal.item
+        self.portal.invokeFactory('TestContainer', 'container', title=u"Container 1")
+        self.container = self.portal.container
 
     def test_themes_vocabulary(self):
         util = getUtility(IVocabularyFactory, name='collective.classifiers.themes')
@@ -109,47 +109,47 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         self.assertTrue('product' in keys)
 
     def test_themes_behavior_direct_access(self):
-        self.assertEqual(self.item.classifiers_themes, [])
-        self.item.classifiers_themes = ['Water > Drinking']
-        self.assertEqual(self.item.classifiers_themes, ['Water > Drinking'])
+        self.assertEqual(self.container.classifiers_themes, [])
+        self.container.classifiers_themes = ['Water > Drinking']
+        self.assertEqual(self.container.classifiers_themes, ['Water > Drinking'])
 
     def test_themes_behavior_adapter_access(self):
         from ..behaviors import IThemes
-        wrapped = IThemes(self.item)
+        wrapped = IThemes(self.container)
         self.assertEqual(wrapped.classifiers_themes, [])
         wrapped.classifiers_themes = ['Water > Drinking']
         self.assertEqual(wrapped.classifiers_themes, ['Water > Drinking'])
 
     def test_categories_behavior_direct_access(self):
-        self.assertEqual(self.item.classifiers_categories, [])
-        self.item.classifiers_categories = ['Report > Technical']
-        self.assertEqual(self.item.classifiers_categories, ['Report > Technical'])
+        self.assertEqual(self.container.classifiers_categories, [])
+        self.container.classifiers_categories = ['Report > Technical']
+        self.assertEqual(self.container.classifiers_categories, ['Report > Technical'])
 
     def test_categories_behavior_adapter_access(self):
         from ..behaviors import ICategories
-        wrapped = ICategories(self.item)
+        wrapped = ICategories(self.container)
         self.assertEqual(wrapped.classifiers_categories, [])
         wrapped.classifiers_categories = ['Report > Technical']
         self.assertEqual(wrapped.classifiers_categories, ['Report > Technical'])
 
     def test_themes_indexer(self):
         from ..indexers import classifiers_themes
-        indexer = classifiers_themes(self.item)
+        indexer = classifiers_themes(self.container)
         self.assertEqual(indexer(), [])
-        self.item.classifiers_themes = ['Water > Drinking']
+        self.container.classifiers_themes = ['Water > Drinking']
         self.assertEqual(indexer(), ['Water', 'Water > Drinking'])
-        self.item.classifiers_themes = [
+        self.container.classifiers_themes = [
             'Water > Drinking', 'Water > Underground']
         self.assertEqual(indexer(), ['Water', 'Water > Drinking',
                                      'Water > Underground'])
 
     def test_categories_indexer(self):
         from ..indexers import classifiers_categories
-        indexer = classifiers_categories(self.item)
+        indexer = classifiers_categories(self.container)
         self.assertEqual(indexer(), [])
-        self.item.classifiers_categories = ['Report > Technical']
+        self.container.classifiers_categories = ['Report > Technical']
         self.assertEqual(indexer(), ['Report', 'Report > Technical'])
-        self.item.classifiers_categories = [
+        self.container.classifiers_categories = [
             'Report > Technical', 'Report > Management']
         self.assertEqual(indexer(), ['Report', 'Report > Management',
                                      'Report > Technical'])
@@ -163,14 +163,14 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'v': 'water',
         }]
         collection.setQuery(query)
-        # There are no items mathing the query yet.
+        # There are no containers mathing the query yet.
         self.assertEqual(len(collection.getQuery()), 0)
 
         # water should find water > underground
-        self.item.classifiers_themes = ['water > underground']
-        self.item.reindexObject()
+        self.container.classifiers_themes = ['water > underground']
+        self.container.reindexObject()
         self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Item 1")
+        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
 
         # Specialize the query to water > drinking
         query = [{
@@ -181,11 +181,11 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         collection.setQuery(query)
         self.assertEqual(len(collection.getQuery()), 0)
 
-        # Make the item match.
-        self.item.classifiers_themes = ['water > drinking']
-        self.item.reindexObject()
+        # Make the container match.
+        self.container.classifiers_themes = ['water > drinking']
+        self.container.reindexObject()
         self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Item 1")
+        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
 
     def test_collection_with_categories(self):
         self.portal.invokeFactory('Collection', 'collection', title='My Collection')
@@ -196,14 +196,14 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'v': 'report',
         }]
         collection.setQuery(query)
-        # There are no items mathing the query yet.
+        # There are no containers mathing the query yet.
         self.assertEqual(len(collection.getQuery()), 0)
 
         # report should find report > management
-        self.item.classifiers_categories = ['report > management']
-        self.item.reindexObject()
+        self.container.classifiers_categories = ['report > management']
+        self.container.reindexObject()
         self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Item 1")
+        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
 
         # Specialize the query to report > technical
         query = [{
@@ -214,8 +214,8 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         collection.setQuery(query)
         self.assertEqual(len(collection.getQuery()), 0)
 
-        # Make the item match.
-        self.item.classifiers_categories = ['report > technical']
-        self.item.reindexObject()
+        # Make the container match.
+        self.container.classifiers_categories = ['report > technical']
+        self.container.reindexObject()
         self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Item 1")
+        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
