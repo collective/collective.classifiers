@@ -142,6 +142,19 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'Water > Drinking', 'Water > Underground']
         self.assertEqual(indexer(), ['Water', 'Water > Drinking',
                                      'Water > Underground'])
+        # Create an item.
+        self.container.invokeFactory('TestItem', 'item', title=u"Item 1")
+        # The item is in the catalog:
+        self.assertEqual(len(self.portal.portal_catalog(
+            portal_type='TestItem')), 1)
+        # The item should inherit the themes of its parent for
+        # indexing, so it should not be found when querying the
+        # catalog for a theme.
+        self.assertEqual(len(self.portal.portal_catalog(
+            classifiers_themes='Water > Drinking')), 1)
+        item = self.container.item
+        indexer = classifiers_themes(item)
+        self.assertEqual(indexer(), None)
 
     def test_categories_indexer(self):
         from ..indexers import classifiers_categories
@@ -153,6 +166,19 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'Report > Technical', 'Report > Management']
         self.assertEqual(indexer(), ['Report', 'Report > Management',
                                      'Report > Technical'])
+        # Create an item.
+        self.container.invokeFactory('TestItem', 'item', title=u"Item 1")
+        # The item is in the catalog:
+        self.assertEqual(len(self.portal.portal_catalog(
+            portal_type='TestItem')), 1)
+        # The item should inherit the categories of its parent for
+        # indexing, so it should not be found when querying the
+        # catalog for a theme.
+        self.assertEqual(len(self.portal.portal_catalog(
+            classifiers_categories='Report > Technical')), 1)
+        item = self.container.item
+        indexer = classifiers_categories(item)
+        self.assertEqual(indexer(), None)
 
     def test_collection_with_themes(self):
         self.portal.invokeFactory('Collection', 'collection', title='My Collection')
