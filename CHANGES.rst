@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4 (unreleased)
+0.4 (2014-03-05)
 ----------------
 
 - Add upgrade step to fix the values currently in the catalog.
