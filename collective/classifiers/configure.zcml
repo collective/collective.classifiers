@@ -34,6 +34,14 @@
       handler="collective.classifiers.migration.run_registry_step"
       profile="collective.classifiers:default" />
 
+  <genericsetup:upgradeStep
+      title="Fix catalog values"
+      description="Items could inherit values from their parents, which is not wanted."
+      source="1001"
+      destination="1002"
+      handler="collective.classifiers.migration.fix_catalog_values"
+      profile="collective.classifiers:default" />
+
   <utility
       component=".vocabularies.ThemesVocabularyFactory"
       name="collective.classifiers.themes"

@@ -4,6 +4,9 @@ Changelog
 0.4 (unreleased)
 ----------------
 
+- Add upgrade step to fix the values currently in the catalog.
+  [maurits]
+
 - Do not let themes and categories end up in the catalog index when
   the behavior is not activated for a portal_type.
   [maurits]
