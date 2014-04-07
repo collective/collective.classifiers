@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: plone 1.0\n"
-"POT-Creation-Date: 2013-11-09 21:42+0000\n"
+"POT-Creation-Date: 2014-04-07 10:07+0000\n"
 "PO-Revision-Date: 2013-11-08 17:20 +0100\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest Software <info@zestsoftware.nl>\n"
@@ -37,6 +37,10 @@ msgstr "Subcategorieën"
 #: profiles/default/registry.xml
 msgid "Sub themes"
 msgstr "Subthema's"
+
+#: profiles/testfixture/types/TestContainer.xml
+msgid "Test Container"
+msgstr ""
 
 #: profiles/testfixture/types/TestItem.xml
 msgid "Test Item"

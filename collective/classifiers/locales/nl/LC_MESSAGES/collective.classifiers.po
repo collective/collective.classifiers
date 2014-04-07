@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: collective.classifiers 1.0\n"
-"POT-Creation-Date: 2013-11-09 21:42+0000\n"
+"POT-Creation-Date: 2014-04-07 10:07+0000\n"
 "PO-Revision-Date: 2013-11-08 18:07 +0100\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest Software <info@zestsoftware.nl>\n"
@@ -22,7 +22,7 @@ msgstr "Voegt classifiers_categories veld toe"
 msgid "Adds classifiers_themes field."
 msgstr "Voegt classifiers_themes veld toe"
 
-#: ./behaviors.py:23
+#: ./behaviors.py:27
 msgid "Categories"
 msgstr "Categorieën"
 
@@ -38,9 +38,17 @@ msgstr "Classificatie-instellingen"
 msgid "Installs the collective.classifiers package"
 msgstr "Installeert het collective.classifiers pakket"
 
+#: ./behaviors.py:13
+msgid "Select one or more subjects that match this objects content to classify it for search in other parts of the site. Themes are specific to a website's purpose."
+msgstr "Kies één of meerdere thema's die overeenkomen met de inhoud van dit object. Thema's zijn specifiek voor de onderwerpen/inhoud van deze website."
+
 #: ./configure.zcml
 msgid "Testfixture for collective.classifiers"
 msgstr "Testinhoud voor collective.classifiers"
+
+#: ./behaviors.py:28
+msgid "The category classifies the meta type of information this content contains and could be seen as different sections on the site, for example Q&A, legal, or support pages. Categories are more generic and can be found under the same name (like support) on many different websites."
+msgstr "De categorie bepaalt het meta-type informatie van dit object en kan overeenkomen met secties op de website, bijvoorbeeld 'vraag en antwoord', 'ondersteuning', of 'wetgeving'. Categorieën zijn algemeen en herbruikbaar op verschillende websites."
 
 #: ./behaviors.py:12
 msgid "Themes"
