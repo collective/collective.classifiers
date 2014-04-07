@@ -10,7 +10,9 @@ Changelog
 0.4.1 (2014-04-07)
 ------------------
 
-- Nothing changed yet.
+- Add descriptios to our classifier and theme fields and provide Dutch
+  translations.
+  [fredvd]
 
 
 0.4 (2014-03-05)
