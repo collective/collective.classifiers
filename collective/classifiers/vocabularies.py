@@ -1,7 +1,7 @@
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
-from zope.interface import implements
+from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -9,6 +9,7 @@ from zope.schema.vocabulary import SimpleVocabulary
 from .utils import join_classifiers_terms
 
 
+@implementer(IVocabularyFactory)
 class ClassifiersVocabulary(object):
     """Vocabulary for classifiers on a content item.
 
@@ -19,7 +20,6 @@ class ClassifiersVocabulary(object):
     - Main Theme A > Sub 2
     - Main Theme B
     """
-    implements(IVocabularyFactory)
     registry_name = ''
 
     def __call__(self, context):
