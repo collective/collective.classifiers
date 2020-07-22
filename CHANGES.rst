@@ -4,7 +4,9 @@ Changelog
 0.4.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add patch/hack to provide context to the vocabularyfactory when it's not available: mainly in datagridfield rows. [f.vandijk]
+
+- Plone 5 compatibility. [f.vandijk]
 
 
 0.4.1 (2014-04-07)

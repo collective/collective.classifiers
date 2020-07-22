@@ -5,7 +5,8 @@ from zope.interface import implementer
 from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
-
+from plone.dexterity.interfaces import IDexterityContent
+from zope.globalrequest import getRequest
 from .utils import join_classifiers_terms
 
 
@@ -23,6 +24,11 @@ class ClassifiersVocabulary(object):
     registry_name = ''
 
     def __call__(self, context):
+
+        # small hack to have a context inside datagridfield subform fields
+        if not IDexterityContent.providedBy(context):
+            req = getRequest()
+            context = req.PARENTS[0]
         normalize = getUtility(IIDNormalizer).normalize
         registry = getUtility(IRegistry)
         classifiers = registry[self.registry_name]
