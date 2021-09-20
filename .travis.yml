@@ -1,16 +1,21 @@
 language: python
-python:
-  - "2.6"
-  - "2.7"
-notifications:
-  email:
-    recipients:
-    - m.van.rees@zestsoftware.nl
-    on_success: change
+sudo: false
+dist: bionic
+cache:
+  pip: true
+  directories:
+  - eggs
+  - downloads
+jobs:
+  fast_finish: true
+matrix:
+  include:
+    - python: "2.7"
+      env: PLONE_VERSION=5.2.x
+    - python: "3.7"
+      env: PLONE_VERSION=5.2.x
 install:
-  - mkdir -p buildout-cache/eggs
-  - mkdir -p buildout-cache/downloads
-  - python bootstrap.py -c travis.cfg
-  - bin/buildout -N -t 3 -c travis.cfg install download install
-  - bin/buildout -N -t 3 -c travis.cfg
-script: bin/test
+  - pip install -r requirements-${PLONE_VERSION}.txt
+  - buildout -Nc buildout-${PLONE_VERSION}.cfg buildout:download-cache=downloads
+script:
+  - bin/test

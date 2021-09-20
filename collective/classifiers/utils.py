@@ -1,17 +1,18 @@
-SPLITTER = ' > '
+SPLITTER = " > "
+import six
 
 
 def join_classifiers_terms(main, sub):
-    if not isinstance(main, basestring):
+    if not isinstance(main, six.string_types):
         main = str(main)
-    if not isinstance(sub, basestring):
+    if not isinstance(sub, six.string_types):
         sub = str(sub)
     main = main.strip()
     sub = sub.strip()
     # Handle any existing occurences of the splitter.  We can remove
     # it, replace it, or raise an error.
-    main = main.replace(SPLITTER, ' SPLITTER ')
-    sub = sub.replace(SPLITTER, ' SPLITTER ')
+    main = main.replace(SPLITTER, " SPLITTER ")
+    sub = sub.replace(SPLITTER, " SPLITTER ")
     # One of the terms might be empty, especially after stripping
     # spaces.
     return SPLITTER.join([term for term in (main, sub) if term])
