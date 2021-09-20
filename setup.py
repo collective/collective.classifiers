@@ -5,14 +5,19 @@ setup(name='collective.classifiers',
       description="Themes and categories behavior",
       long_description=(open("README.rst").read() + "\n" +
                         open("CHANGES.rst").read()),
-      # Get more strings from
-      # http://pypi.python.org/pypi?:action=list_classifiers
+      # Get more strings from https://pypi.org/classifiers/
       classifiers=[
+          "Development Status :: 5 - Production/Stable",
           "Framework :: Plone",
-          "Framework :: Plone :: 4.3",
+          "Framework :: Plone :: 5.2",
+          "Framework :: Plone :: 6.0",
+          "License :: OSI Approved :: GNU General Public License (GPL)",
           "Programming Language :: Python",
-          "Programming Language :: Python :: 2.6",
           "Programming Language :: Python :: 2.7",
+          "Programming Language :: Python :: 3.6",
+          "Programming Language :: Python :: 3.7",
+          "Programming Language :: Python :: 3.8",
+          "Programming Language :: Python :: 3.9",
           ],
       keywords='collective.classifiers theme info class',
       author='Zest Software',
