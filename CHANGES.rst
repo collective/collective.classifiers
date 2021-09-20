@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.4.2 (unreleased)
+1.0.0 (unreleased)
 ------------------
 
 - Add patch/hack to provide context to the vocabularyfactory when it's not available: mainly in datagridfield rows. [f.vandijk]
