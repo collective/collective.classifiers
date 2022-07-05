@@ -4,6 +4,9 @@ Changelog
 1.0.0a2 (unreleased)
 --------------------
 
+- Gave names to our behaviors: ``collective.classifiers.themes`` and ``collective.classifiers.categories``.
+  [maurits]
+
 - Tested on Plone 5.2 and 6.0 with all supported Python versions.
   This includes Plone 5.2 on Python 2.7.
   [maurits]

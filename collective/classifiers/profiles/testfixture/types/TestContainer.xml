@@ -11,8 +11,8 @@
  <property name="behaviors">
   <element value="plone.app.content.interfaces.INameFromTitle"/>
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
-  <element value="collective.classifiers.behaviors.IThemes"/>
-  <element value="collective.classifiers.behaviors.ICategories"/>
+  <element value="collective.classifiers.themes"/>
+  <element value="collective.classifiers.categories"/>
  </property>
  <!-- A schema (or model or model_source) is required.
       We only need a basically empty schema. -->
