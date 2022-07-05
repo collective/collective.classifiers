@@ -190,13 +190,13 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         }]
         collection.setQuery(query)
         # There are no containers mathing the query yet.
-        self.assertEqual(len(collection.getQuery()), 0)
+        self.assertEqual(len(collection.results()), 0)
 
         # water should find water > underground
         self.container.classifiers_themes = ['water > underground']
         self.container.reindexObject()
-        self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
+        self.assertEqual(len(collection.results()), 1)
+        self.assertEqual(collection.results()[0].Title(), "Container 1")
 
         # Specialize the query to water > drinking
         query = [{
@@ -205,13 +205,13 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'v': 'water > drinking',
         }]
         collection.setQuery(query)
-        self.assertEqual(len(collection.getQuery()), 0)
+        self.assertEqual(len(collection.results()), 0)
 
         # Make the container match.
         self.container.classifiers_themes = ['water > drinking']
         self.container.reindexObject()
-        self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
+        self.assertEqual(len(collection.results()), 1)
+        self.assertEqual(collection.results()[0].Title(), "Container 1")
 
     def test_collection_with_categories(self):
         self.portal.invokeFactory('Collection', 'collection', title='My Collection')
@@ -223,13 +223,14 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         }]
         collection.setQuery(query)
         # There are no containers mathing the query yet.
-        self.assertEqual(len(collection.getQuery()), 0)
+
+        self.assertEqual(len(collection.results()), 0)
 
         # report should find report > management
         self.container.classifiers_categories = ['report > management']
         self.container.reindexObject()
-        self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
+        self.assertEqual(len(collection.results()), 1)
+        self.assertEqual(collection.results()[0].Title(), "Container 1")
 
         # Specialize the query to report > technical
         query = [{
@@ -238,10 +239,10 @@ class ExtraIntegrationTestCase(unittest.TestCase):
             'v': 'report > technical',
         }]
         collection.setQuery(query)
-        self.assertEqual(len(collection.getQuery()), 0)
+        self.assertEqual(len(collection.results()), 0)
 
         # Make the container match.
         self.container.classifiers_categories = ['report > technical']
         self.container.reindexObject()
-        self.assertEqual(len(collection.getQuery()), 1)
-        self.assertEqual(collection.getQuery()[0].Title(), "Container 1")
+        self.assertEqual(len(collection.results()), 1)
+        self.assertEqual(collection.results()[0].Title(), "Container 1")
