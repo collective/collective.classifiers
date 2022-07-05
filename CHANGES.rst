@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.0.0a2 (unreleased)
+1.0.0b2 (2022-07-05)
 --------------------
 
 - Gave names to our behaviors: ``collective.classifiers.themes`` and ``collective.classifiers.categories``.
