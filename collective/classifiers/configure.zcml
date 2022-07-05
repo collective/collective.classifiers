@@ -55,12 +55,14 @@
   <adapter name="classifiers_categories" factory=".indexers.classifiers_categories" />
 
   <plone:behavior
+      name="collective.classifiers.themes"
       title="Themes classifiers"
       description="Adds classifiers_themes field."
       provides=".behaviors.IThemes"
       for="plone.dexterity.interfaces.IDexterityContent"
       />
   <plone:behavior
+      name="collective.classifiers.categories"
       title="Categories classifiers"
       description="Adds classifiers_categories field."
       provides=".behaviors.ICategories"
