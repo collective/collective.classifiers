@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='collective.classifiers',
-      version='1.0.0b2',
+      version='1.0.0b3.dev0',
       description="Themes and categories behavior",
       long_description=(open("README.rst").read() + "\n" +
                         open("CHANGES.rst").read()),
