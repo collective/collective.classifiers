@@ -4,7 +4,9 @@ Changelog
 1.0.0a2 (unreleased)
 --------------------
 
-- Nothing changed yet.
+- Tested on Plone 5.2 and 6.0 with all supported Python versions.
+  This includes Plone 5.2 on Python 2.7.
+  [maurits]
 
 
 1.0.0a1 (2021-09-20)
