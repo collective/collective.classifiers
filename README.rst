@@ -152,12 +152,4 @@ administration. The other two are the Brussels-Capital Region and the Walloon
 Region.
 
 
-Testing
-=======
-
-This package is tested with Travis:
-
-.. image:: https://secure.travis-ci.org/collective/collective.classifiers.png
-    :target: http://travis-ci.org/collective/collective.classifiers
-
 .. _`collective.taxonomy`: https://pypi.python.org/pypi/collective.taxonomy
