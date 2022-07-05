@@ -12,6 +12,17 @@ from collective.classifiers.testing import INTEGRATION_TESTING
 from collective.classifiers.testing import EXTRA_INTEGRATION_TESTING
 
 
+def normalize_keys(keys):
+    # Some keys have Chinese characters that gets passed through a normalizer.
+    # The Plone 6 normalizer is a bit nicer.
+    new_keys = []
+    for key in keys:
+        new_keys.append(
+            key.replace("6c498bed", "yi-yu").replace("6f228a9e", "han-yu")
+        )
+    return new_keys
+
+
 class IntegrationTestCase(unittest.TestCase):
     # This does NOT have the testfixture profile installed.
     layer = INTEGRATION_TESTING
@@ -59,10 +70,11 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         self.assertTrue('water' in keys)
         self.assertTrue('water > drinking' in keys)
         self.assertTrue('air' in keys)
-        # Some Chinese characters:
-        self.assertTrue('air > non-ascii-6c498bed-6f228a9e-hanyu' in keys)
-        self.assertTrue('6c498bed' in keys)
-        self.assertTrue('6c498bed > 123' in keys)
+        # Some Chinese characters.
+        keys = normalize_keys(keys)
+        self.assertIn('air > non-ascii-yi-yu-han-yu-hanyu', keys)
+        self.assertIn('yi-yu', keys)
+        self.assertIn('yi-yu > 123', keys)
 
     def test_categories_vocabulary(self):
         util = getUtility(IVocabularyFactory, name='collective.classifiers.categories')
@@ -84,7 +96,8 @@ class ExtraIntegrationTestCase(unittest.TestCase):
         self.assertTrue('report > management' in keys)
         self.assertTrue('report > technical' in keys)
         # This is a Chinese one, that gets passed through a normalizer.
-        self.assertTrue('6c498bed-6f228a9e-hanyu' in keys)
+        keys = normalize_keys(keys)
+        self.assertIn('yi-yu-han-yu-hanyu', keys)
 
     def test_none_categories_vocabulary(self):
         # None as value should be fine.
